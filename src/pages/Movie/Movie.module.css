@@ -1,0 +1,25 @@
+.article {
+	align-items: center;
+	border: 1px solid blue;
+	display: flex;
+	gap: 20px;
+	min-height: calc(100vh - 70px);
+	padding: 15px 10%;
+}
+
+.content div {
+	margin: 10px 0;
+	border: 1px solid blue;
+}
+
+.details h1 {
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 5px;
+	font-size: 35px;
+}
+
+.details p {
+	font-size: 20px;
+	text-align: justify;
+	padding-top: 5px;
+}
