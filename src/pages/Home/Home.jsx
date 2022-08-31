@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Loading from "../../components/Loading/Loading";
 import MovieCard from "../../components/MovieCard/MovieCard";
 
 const apiTMDBUrl = import.meta.env.VITE_API;
@@ -26,9 +27,9 @@ const Home = () => {
 	return (
 		<>
 			<section>
-				<h2>Melhores filmes:</h2>
+				<h2>Os melhores filmes</h2>
 				<div className="movies-container">
-					{topRatedMovies.length === 0 && <p>Carregando...</p>}
+					{topRatedMovies.length === 0 && <Loading />}
 					{topRatedMovies.length > 0 && topRatedMovies.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
 				</div>
 			</section>

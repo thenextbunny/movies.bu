@@ -7,6 +7,7 @@ const apiTMDBKey = import.meta.env.VITE_API_KEY;
 import "../MoviesGrid.css";
 
 import MovieCard from "../../components/MovieCard/MovieCard";
+import Loading from "../../components/Loading/Loading";
 
 const Search = () => {
 	const [searchParams] = useSearchParams();
@@ -30,10 +31,10 @@ const Search = () => {
 	return (
 		<section>
 			<h2>
-				Resultados para <span className="query-text">{query}</span>
+				Resultados para: <span className="query-text">{query}</span>
 			</h2>
 			<div className="movies-container">
-				{movies.length === 0 && <p>Carregando...</p>}
+				{movies.length === 0 && <Loading />}
 				{movies.length > 0 && movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
 			</div>
 		</section>

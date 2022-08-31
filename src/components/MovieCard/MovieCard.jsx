@@ -14,7 +14,7 @@ const MovieCard = ({ movie, showLink = true }) => {
 			<img src={movie.poster_path ? imageTMDBUrl + movie.poster_path : NotFound} alt="" />
 			<h2>{movie.title}</h2>
 			<p>
-				<FaStar /> {movie.vote_average}
+				<FaStar /> {movie.vote_average}/10
 			</p>
 			{showLink && <Link to={`/movie/${movie.id}`}>Detalhes</Link>}
 		</div>

@@ -7,6 +7,8 @@ const imageTMDBUrl = import.meta.env.VITE_IMG;
 
 import styles from "./Movie.module.css";
 
+import NotFound from "../../assets/notfound.png";
+
 const Movie = () => {
 	const { id } = useParams();
 	const [movie, setMovie] = useState(null);
@@ -14,7 +16,6 @@ const Movie = () => {
 	const getMovie = async (url) => {
 		const res = await fetch(url);
 		const data = await res.json();
-		console.log(data);
 		setMovie(data);
 	};
 
@@ -23,12 +24,10 @@ const Movie = () => {
 		getMovie(movieUrl);
 	}, []);
 
-	console.log(movie);
-
 	return (
 		movie && (
 			<article className={styles.article}>
-				<div>
+				<div className={styles.image}>
 					<img src={movie.poster_path ? imageTMDBUrl + movie.poster_path : NotFound} alt="" />
 				</div>
 				<div className={styles.content}>
@@ -36,21 +35,13 @@ const Movie = () => {
 						<h1>{movie.title}</h1>
 						<p>{movie.overview}</p>
 					</div>
-					<div>
+					<div className={styles.genres}>
 						<h2>Genres</h2>
-						<p>
-							{movie.genres.map(({ name }) => (
-								<span key={name}>{name}</span>
-							))}
-						</p>
-					</div>
-					<div>
-						<h2>Duration</h2>
+						<p>{movie.genres.length > 0 ? movie.genres.map((genres) => <span key={genres.id}>{genres.name}</span>).reduce((prev, curr) => [prev, ", ", curr]) : "No genres listed"}</p>
+						<h2>Runtime</h2>
 						<p>{movie.runtime} minutes</p>
-					</div>
-					<div>
-						<h2>Relase date</h2>
-						<p>{movie.release_date.replaceAll("-", "/")}</p>
+						<h2>Release date</h2>
+						<p>{movie.release_date ? movie.release_date.replaceAll("-", "/") : "No date has been specified"}</p>
 					</div>
 				</div>
 			</article>

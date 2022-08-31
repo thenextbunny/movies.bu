@@ -23,13 +23,13 @@ const NavBar = () => {
 	return (
 		<nav className={styles.navbar}>
 			<div className={styles.logo}>
-				<Link to="/">
+				<Link to="/movies.bu/">
 					<img src={Logo} alt="" />
 					movies.bu
 				</Link>
 			</div>
 			<form onSubmit={handleSubmit}>
-				<input type="text" name="search" id="search" placeholder="Buscar filme" onChange={(event) => setSearch(event.target.value)} value={search} />
+				<input type="text" name="search" id="search" placeholder="Find a movie" onChange={(event) => setSearch(event.target.value)} value={search} />
 				<button type="submit">
 					<BiSearchAlt2 />
 				</button>

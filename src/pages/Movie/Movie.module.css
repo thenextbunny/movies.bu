@@ -1,15 +1,31 @@
 .article {
 	align-items: center;
-	border: 1px solid blue;
 	display: flex;
+	font-size: 17px;
 	gap: 20px;
 	min-height: calc(100vh - 70px);
 	padding: 15px 10%;
+	width: 100%;
 }
 
-.content div {
-	margin: 10px 0;
-	border: 1px solid blue;
+.content {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.content > div {
+	margin: 8px 0;
+	width: 100%;
+}
+
+.content h2 {
+	font-size: 20px;
+}
+
+.image img {
+	height: 450px;
+	width: 300px;
 }
 
 .details h1 {
@@ -19,7 +35,22 @@
 }
 
 .details p {
-	font-size: 20px;
 	text-align: justify;
 	padding-top: 5px;
+}
+
+@media (max-width: 991.98px) {
+	.article {
+		flex-direction: column;
+		padding: 15px 20px;
+	}
+
+	.image img {
+		height: 100%;
+		width: 100%;
+	}
+
+	.details h1 {
+		text-align: center;
+	}
 }
