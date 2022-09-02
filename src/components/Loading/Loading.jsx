@@ -6,7 +6,7 @@ const Loading = () => {
 	return (
 		<div className={styles.loading}>
 			<img src={Logo} alt="movies.bu" />
-			<p>Carregando...</p>
+			<p>Loading...</p>
 		</div>
 	);
 };
