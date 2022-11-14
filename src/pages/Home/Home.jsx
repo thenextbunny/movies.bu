@@ -8,7 +8,7 @@ const apiTMDBKey = import.meta.env.VITE_API_KEY;
 import "../MoviesGrid.css";
 
 const Home = () => {
-	// Transformar em Hook
+	// TODO: Transformar em Hook
 	const [topRatedMovies, setTopRatedMovies] = useState([]);
 
 	const getTopRatedMovies = async (url) => {
@@ -27,7 +27,7 @@ const Home = () => {
 	return (
 		<>
 			<section>
-				<h2>Os melhores filmes</h2>
+				<h2>The best movies</h2>
 				<div className="movies-container">
 					{topRatedMovies.length === 0 && <Loading />}
 					{topRatedMovies.length > 0 && topRatedMovies.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
