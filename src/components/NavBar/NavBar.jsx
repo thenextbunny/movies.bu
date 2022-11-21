@@ -22,18 +22,20 @@ const NavBar = () => {
 
 	return (
 		<nav className={styles.navbar}>
-			<div className={styles.logo}>
-				<Link to="/movies.bu/">
-					<img src={Logo} alt="" />
-					movies.bu
-				</Link>
+			<div className={styles.container}>
+				<div className={styles.logo}>
+					<Link to="/movies.bu/">
+						<img src={Logo} alt="" />
+						movies.bu
+					</Link>
+				</div>
+				<form onSubmit={handleSubmit}>
+					<input type="text" name="search" id="search" placeholder="Find a movie" onChange={(event) => setSearch(event.target.value)} value={search} />
+					<button type="submit">
+						<BiSearchAlt2 />
+					</button>
+				</form>
 			</div>
-			<form onSubmit={handleSubmit}>
-				<input type="text" name="search" id="search" placeholder="Find a movie" onChange={(event) => setSearch(event.target.value)} value={search} />
-				<button type="submit">
-					<BiSearchAlt2 />
-				</button>
-			</form>
 		</nav>
 	);
 };

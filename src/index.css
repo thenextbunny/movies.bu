@@ -13,7 +13,11 @@ body {
 }
 
 section {
-	padding: 20px 10%;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	padding: 20px 0;
 	text-align: center;
 }
 
